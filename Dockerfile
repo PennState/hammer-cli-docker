@@ -9,5 +9,7 @@ RUN yum -y install centos-release-scl yum-utils \
  && yum -y localinstall https://fedorapeople.org/groups/katello/releases/yum/${katello_version}/katello/el7/x86_64/katello-repos-latest.rpm \
  && yum -y install tfm-rubygem-hammer_cli tfm-rubygem-hammer_cli_\* \
  && yum -y clean all
- 
+
+RUN useradd -m hammer
+USER hammer
 CMD /usr/bin/hammer
